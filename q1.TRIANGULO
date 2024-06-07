@@ -1,23 +1,52 @@
 import turtle
 
-# Configurar a Turtle
-t = turtle.Turtle()
-t.speed(2)
-t.fillcolor('red')  # Definir cor
 
+# Configurar a Turtle
+turtle.colormode(255)  # definir cor usando notacao RGB
+t = turtle.Turtle()
+t.speed(1)  # velocidade
+t.pensize(2)  # grossura da caneta
+
+largura = 250
+altura = 30
+
+'''           Desenho do triângulo VERDE       '''
 # Iniciar o preenchimento
 t.begin_fill()
+t.fillcolor(34, 197, 94)
 
-# Desenho do triângulo equilátero
-for _ in range(3):
-    t.forward(100)  # Anda 100 passos para frente
-    t.left(120)     # Rotaciona 120 graus para a esquerda
+# Anda para frente a qantidade de passos da parte de cima do retangulo
+t.forward(largura)
+t.right(90)  # Rotaciona 90 graus para a direita
+t.forward(altura)  # Anda para frente - lateral direita
+t.right(90)  # Rotaciona 90 graus para a direita
+t.forward(largura)  # Anda para frente - base
+t.right(90)  # Rotaciona 90 graus para a direita
+t.forward(altura)  # Anda para frente - lateral esquerda
+t.end_fill()  # encerra preenchimento
 
-# Finalizar o preenchimento
-t.end_fill()
 
-# Esconder a Turtle após desenhar
-t.hideturtle()
+t.penup()  # retira a caneta
+t.forward(20)  # espaço entre os dois retangulos
+t.pendown()  # coloca a caneta de volta
+
+
+'''           Desenho do triângulo AZUL       '''
+# Iniciar o preenchimento
+t.begin_fill()
+t.fillcolor(59, 130, 246)
+
+# Anda para frente a qantidade de passos da parte de cima do retangulo
+t.forward(altura)
+t.right(90)  # Rotaciona 90 graus para a direita
+t.forward(largura)  # Anda para frente - lateral direita
+t.right(90)  # Rotaciona 90 graus para a direita
+t.forward(altura)  # Anda para frente - base
+t.right(90)  # Rotaciona 90 graus para a direita
+t.forward(largura)  # Anda para frente - lateral esquerda
+
+t.end_fill()  # encerra preenchimento
+
 
 turtle.mainloop()
 

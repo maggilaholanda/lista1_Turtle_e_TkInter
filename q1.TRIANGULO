@@ -1,0 +1,27 @@
+import turtle
+
+# Configurar a Turtle
+t = turtle.Turtle()
+t.speed(2)
+t.fillcolor('red')  # Definir cor
+
+# Iniciar o preenchimento
+t.begin_fill()
+
+# Desenho do triângulo equilátero
+for _ in range(3):
+    t.forward(100)  # Anda 100 passos para frente
+    t.left(120)     # Rotaciona 120 graus para a esquerda
+
+# Finalizar o preenchimento
+t.end_fill()
+
+# Esconder a Turtle após desenhar
+t.hideturtle()
+
+turtle.mainloop()
+
+''' REFERENCIA
+    https://docs.python.org/pt-br/3/library/turtle.html#turtle-tutorial
+
+'''

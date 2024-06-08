@@ -9,19 +9,19 @@ t.speed(3)  # velocidade
 t.pensize(1)  # grossura da caneta
 
 
-def retangulo(largura, altura,):
+def retangulo(largura, altura):
     # Iniciar o preenchimento
     t.begin_fill()
 
     cor = (random.randint(0, 255), random.randint(
         0, 255), random.randint(0, 255))
     t.fillcolor(cor)
+
     for _ in range(2):
-        t.forward(largura)
-        t.right(90)
         t.forward(altura)
         t.right(90)
-
+        t.forward(largura)
+        t.right(90)
     t.end_fill()  # encerra preenchimento
 
 
@@ -29,13 +29,13 @@ def desenha_N_retangulos():
     entrada_usuario = int(entrada.get())
 
     for i in range(entrada_usuario):
-        retangulo(largura=20, altura=250)
+        retangulo(largura=250, altura=20)
         t.penup()  # retira a caneta
-        t.forward(40)  # espaço entre os dois retangulos
+        t.forward(20)  # espaço entre os dois retangulos
         t.pendown()  # coloca a caneta de volta
 
 
-janela = tk.Tk()
+janela = tk.Tk()  # metodo
 janela.title("RETANGULOS COLORIDOS")
 janela.geometry("400x100+20+20")
 lblMsg = tk.Label(janela, text="Informe a quanitdade de retangulos: ")
@@ -52,8 +52,6 @@ janela.mainloop()
     https://docs.python.org/pt-br/3/library/turtle.html#turtle-tutorial 
     https://youtu.be/IjouwdFwsg0?si=kjTJpf6KIEMGJ1wq
 '''
-
-
 
 ''' 
 

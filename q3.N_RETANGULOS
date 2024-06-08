@@ -18,9 +18,9 @@ def retangulo(largura, altura):
     t.fillcolor(cor)
 
     for _ in range(2):
-        t.forward(altura)
-        t.right(90)
         t.forward(largura)
+        t.right(90)
+        t.forward(altura)
         t.right(90)
     t.end_fill()  # encerra preenchimento
 
@@ -29,9 +29,11 @@ def desenha_N_retangulos():
     entrada_usuario = int(entrada.get())
 
     for i in range(entrada_usuario):
-        retangulo(largura=250, altura=20)
+        retangulo(largura=250, altura=35)
         t.penup()  # retira a caneta
-        t.forward(20)  # espaço entre os dois retangulos
+        t.left(90)
+        t.forward(50)  # espaço entre os dois retangulos
+        t.right(90)
         t.pendown()  # coloca a caneta de volta
 
 

@@ -1,0 +1,58 @@
+import turtle
+
+t = turtle.Turtle()
+turtle.colormode(255)
+t.speed(2)
+t.pensize(1)
+
+largura = 150
+altura = 120
+distancia = 30
+
+
+def tri_VERMELHO():
+    t.begin_fill()
+    t.fillcolor('red')
+    for _ in range(3):
+        t.forward(largura)
+        t.right(altura)
+
+
+def tri_VERDE():
+    t.begin_fill()
+    t.fillcolor('green')
+    for _ in range(3):
+        t.forward(largura)
+        t.left(altura)
+
+
+def tri_AZUL():
+    t.begin_fill()
+    t.fillcolor('blue')
+    for _ in range(3):
+        t.forward(largura)
+        t.right(altura)
+
+
+t.penup()
+t.goto(-300, 300)
+t.pendown()
+tri_VERMELHO()
+t.end_fill()
+
+t.penup()
+t.forward(largura)
+t.forward(distancia)
+t.right(120)
+t.pendown()
+tri_VERDE()
+t.end_fill()
+
+t.penup()
+t.left(120)
+t.forward(distancia)
+t.pendown()
+tri_AZUL()
+t.end_fill()
+
+turtle.mainloop()

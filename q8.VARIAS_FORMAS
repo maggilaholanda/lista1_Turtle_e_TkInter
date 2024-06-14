@@ -1,0 +1,63 @@
+import tkinter as tk
+import math
+
+
+def circulo(canvas, T):
+    raio = 0.45 * T
+    x = T / 2
+    y = 1.5 * T
+
+    lado_esq = x - raio
+    lado_dir = x + raio
+    canto_sup = y - raio
+    canto_inf = y + raio
+
+    canvas.create_oval(lado_esq, canto_sup, lado_dir,
+                       canto_inf, fill='pink')
+
+
+def quadrado(canvas, T):
+    lado = 0.9 * T
+    x = 1.5 * T
+    y = 1.5 * T
+
+    lado_esq = x - lado / 2
+    lado_dir = x + lado / 2
+    canto_sup = y - lado / 2
+    canto_inf = y + lado / 2
+
+    canvas.create_rectangle(lado_esq, canto_sup, lado_dir,
+                            canto_inf, fill='orange')
+
+
+def triangulo(canvas, T):
+    lado = 0.9 * T
+    altura = (math.sqrt(3)/2)*lado
+
+    x = T / 2
+    y = T / 2
+
+    lado_esq = x - lado / 2
+    lado_dir = x + lado / 2
+    canto_sup = y - altura / 2
+    canto_inf = y + altura / 2
+
+    canvas.create_polygon(x, canto_sup, lado_esq,
+                          canto_inf, lado_dir, fill='green')
+
+
+T = float(input("Informe o valor numerico: "))
+
+
+janela = tk.Tk()
+janela.title("VARIAS FORMAS")
+janela.geometry("800x600")
+
+canvas = tk.Canvas(janela, width=800, height=600)
+canvas.pack()
+
+circulo(canvas, T)
+quadrado(canvas, T)
+triangulo(canvas, T)
+
+janela.mainloop()

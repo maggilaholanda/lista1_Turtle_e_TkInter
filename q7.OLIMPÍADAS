@@ -1,0 +1,29 @@
+import tkinter as tk
+
+
+def circulo(x, y, raio, cor):
+
+    lado_esq = x - raio
+    lado_dir = x + raio
+    canto_sup = y - raio
+    canto_inf = y + raio
+    canvas.create_oval(lado_esq, canto_sup, lado_dir,
+                       canto_inf, outline=cor, width=10)
+
+
+window = tk.Tk()
+window.title("OLIMPIADAS")
+window.geometry("800x600")
+canvas = tk.Canvas(window, width=800, height=600)  # area de desenho
+canvas.pack()
+
+circulo(x=140, y=170, raio=120, cor="#0885c2")
+circulo(x=400, y=170, raio=120, cor="black")
+circulo(x=660, y=170, raio=120, cor="#ed334e")
+circulo(x=260, y=300, raio=120, cor="#fbb132")
+circulo(x=540, y=300, raio=120, cor="#1c8b3c")
+
+window.mainloop()
+
+# https://www.geeksforgeeks.org/python-tkinter-create-different-shapes-using-canvas-class/
+# https://youtu.be/6E0rRoLwRws?si=3YYUFOZQIow527Ck

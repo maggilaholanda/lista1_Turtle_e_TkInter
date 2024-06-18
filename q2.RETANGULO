@@ -4,11 +4,16 @@ import turtle
 # Configurar a Turtle
 turtle.colormode(255)  # definir cor usando notacao RGB
 t = turtle.Turtle()
-t.speed(1)  # velocidade
+t.speed(3)  # velocidade
 t.pensize(2)  # grossura da caneta
 
 largura = 250
 altura = 30
+
+t.penup()
+t.goto(-100, 0)
+t.pendown()
+
 
 '''           Desenho do triângulo VERDE       '''
 # Iniciar o preenchimento

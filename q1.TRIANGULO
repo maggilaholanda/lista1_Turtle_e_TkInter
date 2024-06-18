@@ -1,16 +1,27 @@
 import turtle
+import random
 
-# Configurar a Turtle
-t = turtle.Turtle()
+t = turtle.Turtle()  # Configurar a Turtle
+turtle.colormode(255)  # definir cor usando notacao RGB
 t.speed(2)
-t.fillcolor('red')  # Definir cor
+# t.fillcolor('red')  # Definir cor
+
 
 # Iniciar o preenchimento
 t.begin_fill()
 
+# r =, g=, b=,
+cor = (random.randint(0, 255), random.randint(
+    0, 255), random.randint(0, 255))
+t.fillcolor(cor)  # Definir cor
+
+t.penup()
+t.goto(-100, 0)
+t.pendown()
+
 # Desenho do triângulo equilátero
 for _ in range(3):
-    t.forward(100)  # Anda 100 passos para frente
+    t.forward(200)  # Anda 200 passos para frente
     t.left(120)     # Rotaciona 120 graus para a esquerda
 
 # Finalizar o preenchimento

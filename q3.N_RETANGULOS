@@ -5,12 +5,16 @@ import random
 
 t = turtle.Turtle()  # Configurar a Turtle
 turtle.colormode(255)  # definir cor usando notacao RGB
+screen = turtle.Screen()
+screen.setup(width=500, height=600)
+screen.title("Atividade 3")
 t.speed(3)  # velocidade
 t.pensize(1)  # grossura da caneta
 
 
 def retangulo(largura, altura):
     # Iniciar o preenchimento
+
     t.begin_fill()
 
     cor = (random.randint(0, 255), random.randint(
@@ -26,10 +30,18 @@ def retangulo(largura, altura):
 
 
 def desenha_N_retangulos():
+    t.reset()
     entrada_usuario = int(entrada.get())
 
-    for i in range(entrada_usuario):
-        retangulo(largura=250, altura=35)
+    largura = 300
+    altura = 30
+
+    t.penup()
+    t.goto(-largura/2, -60)
+    t.pendown()
+
+    for _ in range(entrada_usuario):
+        retangulo(largura, altura)
         t.penup()  # retira a caneta
         t.left(90)
         t.forward(50)  # espaço entre os dois retangulos
@@ -53,46 +65,4 @@ janela.mainloop()
 ''' REFERENCIA
     https://docs.python.org/pt-br/3/library/turtle.html#turtle-tutorial 
     https://youtu.be/IjouwdFwsg0?si=kjTJpf6KIEMGJ1wq
-'''
-
-''' 
-
-import turtle
-import random
-
-# Configurar a Turtle
-turtle.colormode(255)
-t = turtle.Turtle()
-t.speed(1)
-t.pensize(2)
-
-# Função para desenhar um retângulo com cor aleatória
-def desenhar_retangulo(largura, altura):
-    t.begin_fill()
-    cor = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-    t.fillcolor(cor)
-    for _ in range(2):
-        t.forward(largura)
-        t.right(90)
-        t.forward(altura)
-        t.right(90)
-    t.end_fill()
-    t.penup()
-    t.forward(altura + 20)  # Espaço entre os retângulos
-    t.pendown()
-
-# Função para desenhar n retângulos
-def desenhar_n_retangulos(n, largura, altura):
-    for _ in range(n):
-        desenhar_retangulo(largura, altura)
-
-# Solicitar ao usuário o número de retângulos a serem desenhados
-n = int(input("Informe a quantidade de retângulos: "))
-desenhar_n_retangulos(n, 250, 30)
-
-turtle.mainloop()
-
-
-
-
 '''

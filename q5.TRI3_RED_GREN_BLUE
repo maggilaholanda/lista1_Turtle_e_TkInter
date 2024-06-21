@@ -2,12 +2,21 @@ import turtle
 
 t = turtle.Turtle()
 turtle.colormode(255)
-t.speed(2)
-t.pensize(1)
+t.speed(3)
+t.pensize(3)
+
+screen = turtle.Screen()
+screen.setup(width=800, height=700)
+screen.title("Atividade 5")
+
 
 largura = 150
 altura = 120
 distancia = 30
+
+t.penup()
+t.goto(-300, 300)
+t.pendown()
 
 
 def tri_VERMELHO():
@@ -34,9 +43,6 @@ def tri_AZUL():
         t.right(altura)
 
 
-t.penup()
-t.goto(-300, 300)
-t.pendown()
 tri_VERMELHO()
 t.end_fill()
 

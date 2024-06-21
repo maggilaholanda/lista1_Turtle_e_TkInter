@@ -7,45 +7,47 @@ janela.geometry("800x600")
 canvas = tk.Canvas(janela, width=800, height=600)
 canvas.pack()
 
+
 def circulo(x, y, raio):
-    canvas.create_oval(x - raio, y - raio, x + raio,
-                       y + raio, outline='red', fill='red')
+    lado_esq = x - raio
+    lado_dir = x + raio
+    canto_sup = y - raio
+    canto_inf = y + raio
+    canvas.create_oval(lado_esq, canto_sup, lado_dir,
+                       canto_inf, outline='red', fill='red')
 
 
 def quadrado(x, y, T):
-    canvas.create_rectangle(x - T/2, y - T/2, x + T/2, y + T/2,
-                            outline='blue', fill='blue')
+    lado_esq = x - (T/2)
+    lado_dir = x + (T/2)
+    canto_sup = y - (T/2)
+    canto_inf = y + (T/2)
+    canvas.create_rectangle(lado_esq, canto_sup, lado_dir,
+                            canto_inf, outline='blue', fill='blue')
 
 
 def triangulo(x, y, T):
     altura = (3**0.5/2) * T / 2
-    canvas.create_polygon(x, y - altura / 2, x + T / 2, y + altura / 2,
-                          x - T / 2, y + altura / 2, outline='green', fill='green')
+    lado_esq = x - (T/2)
+    lado_dir = x + (T/2)
+    canto_sup = y - (altura/2)
+    canto_inf = y + (altura/2)
+    canvas.create_polygon(x, canto_sup, lado_dir, canto_inf,
+                          lado_esq, canto_inf, outline='green', fill='green')
 
 
-T = float(input("Informe o tamanho: "))
+T = int(input("Informe o tamanho: "))
 eixoX = 800 // 2
 eixoY = 600 // 2
 raio = 0.45 * T
-altura = 0.9 * T
-lado = altura
+tam_Altura_Lado = 0.9 * T
 
+canvas.create_line(eixoX - T, eixoY, eixoX + T, eixoY, fill="black")
+canvas.create_line(eixoX, eixoY - T, eixoX, eixoY + T, fill="black")
 
-circ_x = eixoX - raio
-circ_y = eixoY + raio
-quad_x = eixoX + (T // 2)
-quad_y = eixoY + T - altura / 2
-tri_x = eixoX + T - lado/2
-tri_y = eixoY + (T // 2) - lado
-
-
-canvas.create_line(eixoX -T, eixoY, eixoX +
-                   T , eixoY, fill="black")
-canvas.create_line(eixoX, eixoY - T, eixoX,
-                   eixoY + T, fill="black")
-
-circulo(circ_x, circ_y, raio)
-quadrado(quad_x, quad_y, altura)
-triangulo(tri_x, tri_y, lado)
+circulo(eixoX - raio, eixoY + raio, raio)
+quadrado(eixoX + (T // 2), eixoY + T - tam_Altura_Lado / 2, tam_Altura_Lado)
+triangulo(eixoX + T - tam_Altura_Lado/2, eixoY +
+          (T // 2) - tam_Altura_Lado, tam_Altura_Lado)
 
 janela.mainloop()

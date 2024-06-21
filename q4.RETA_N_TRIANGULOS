@@ -3,15 +3,14 @@ import turtle
 
 screen = turtle.Screen()
 screen.setup(width=800, height=600)
+screen.title("Atividade 4")
 
 t = turtle.Turtle()  # Configurar a Turtle
 t.speed(2)  # velocidade
 t.pensize(2)  # grossura da caneta
 
-# Função para desenhar um triângulo equilátero
 
-
-def triangulo(lado):
+def triangulo(lado):  # Função para desenhar um triângulo equilátero
     t.left(60)
     t.forward(lado)
     t.right(120)
@@ -20,29 +19,32 @@ def triangulo(lado):
 
 
 def desenhar_N_triangulos():
+    t.reset()
+
     quant_N = int(entrada.get())
     # tamanho
-    largura = 150
-    lado = 80
+    largura = 600
+    lado = 50
 
     s = largura / (quant_N + 1)  # TAM da linha que divide o segmento
+    espIni_Fim = s - (lado / 2)
 
-    espInicio = s - (lado / 2)
-    espFim = lado/2
+    t.penup()
+    t.goto(-largura/2, 0)  # posicao da tartaruga antes de comecar a desenhar
+    t.pendown()
 
-    t.goto(largura/2, 0)  # posicao da tartaruga antes de comecar a desenhar
-
-    t.forward(espInicio)
-    for _ in range(quant_N):
+    t.forward(espIni_Fim)
+    for i in range(quant_N):
         triangulo(lado)
-        t.forward(s)
-    t.forward(espFim)
+        if i != (quant_N-1):
+            t.forward(s - lado)
+    t.forward(espIni_Fim)
 
 
 janela = tk.Tk()  # metodo
 janela.title("LINHA DE TRIANGULOS")
 janela.geometry("400x100+20+20")
-lblMsg = tk.Label(janela, text="Informe a quanitdade de triangulos: ")
+lblMsg = tk.Label(janela, text="Informe a quantidade de triangulos: ")
 lblMsg.pack()  # gerenciador de geometria
 entrada = tk.Entry(janela)
 entrada.pack()

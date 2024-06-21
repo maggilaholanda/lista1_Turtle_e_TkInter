@@ -4,6 +4,11 @@ import turtle
 # Configurar a Turtle
 turtle.colormode(255)  # definir cor usando notacao RGB
 t = turtle.Turtle()
+
+screen = turtle.Screen()
+screen.setup(width=600, height=500)
+screen.title("Atividade 2")
+
 t.speed(3)  # velocidade
 t.pensize(2)  # grossura da caneta
 

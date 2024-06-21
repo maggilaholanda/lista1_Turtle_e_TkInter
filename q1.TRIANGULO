@@ -7,6 +7,11 @@ t.speed(2)
 # t.fillcolor('red')  # Definir cor
 
 
+screen = turtle.Screen()
+screen.setup(width=600, height=500)
+screen.title("Atividade 1")
+
+
 # Iniciar o preenchimento
 t.begin_fill()
 

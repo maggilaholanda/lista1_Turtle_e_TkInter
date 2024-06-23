@@ -1,0 +1,41 @@
+import tkinter as tk
+
+
+window = tk.Tk()
+window.title("Atividade 7 - OLIMPIADAS")
+window.geometry("900x500+250+60")
+canvas = tk.Canvas(window, width=900, height=500)  # area de desenho
+canvas.pack()
+
+
+def arco(x, y, raio, start, extent, cor):  # DESAFIO
+
+    lado_esq = x - raio
+    lado_dir = x + raio
+    canto_sup = y - raio
+    canto_inf = y + raio
+
+    canvas.create_arc(lado_esq, canto_sup, lado_dir,
+                      canto_inf, star=start, extent=extent, outline=cor, style=tk.ARC, width=20)
+
+# start = angulo
+# extent = largura (se estende no sentido anti-horario)
+# style=tk.ARC = desenha apenas o arco circular
+
+
+arco(150, 170, 120, 0, 350, "#0885c2")  # AZUL
+arco(440, 170, 120, 0, 250, "black")  # PRETO
+arco(290, 285, 120, 100, 330, "#fbb132")  # AMARELO
+arco(150, 170, 120, 10, -30, "#0885c2")  # AZUL
+arco(575, 285, 120, 75, 110, "#1c8b3c")  # VERDE
+arco(440, 170, 120, 240, 140, "black")  # PRETO
+arco(290, 285, 120, 55, 40, "#fbb132")  # AMARELO
+arco(730, 170, 120, 0, 250, "#ed334e")  # VERMELHO
+arco(575, 285, 120, 180, 260, "#1c8b3c")  # VERDE
+arco(730, 170, 120, 240, 120, "#ed334e")  # VERMELHO
+
+window.mainloop()
+
+# https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_arc.html
+# https://www.geeksforgeeks.org/python-tkinter-create-different-shapes-using-canvas-class/
+# https://youtu.be/6E0rRoLwRws?si=3YYUFOZQIow527Ck

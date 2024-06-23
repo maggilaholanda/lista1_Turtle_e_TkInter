@@ -5,7 +5,8 @@ janela = tk.Tk()
 janela.title("Atividade 8 - VARIAS FORMAS")
 janela.geometry("800x600+250+50")
 canvas = tk.Canvas(janela, width=800, height=600)
-canvas.pack()
+lblMsg = tk.Label(janela, text="Informe um tamanho")
+lblMsg.pack()
 
 
 def circulo(x, y, raio):
@@ -13,8 +14,8 @@ def circulo(x, y, raio):
     lado_dir = x + raio
     canto_sup = y - raio
     canto_inf = y + raio
-    canvas.create_oval(lado_esq, canto_sup, lado_dir,
-                       canto_inf, outline='#8B0000', fill='#FF0000', width=3)
+    canvas.create_oval(lado_esq, canto_sup, lado_dir, canto_inf,
+                       outline='#8B0000', fill='#FF0000', width=3)
 
 
 def quadrado(x, y, T):
@@ -32,23 +33,34 @@ def triangulo(x, y, T):
     lado_dir = x + (T/2)
     canto_sup = y - (altura//2)
     canto_inf = y + (altura//2)
-    canvas.create_polygon(x, canto_sup, lado_dir, canto_inf,
-                          lado_esq, canto_inf, outline='#00FF7F', fill='#00FA9A', width=3)
+    canvas.create_polygon(x, canto_sup, lado_dir, canto_inf, lado_esq,
+                          canto_inf, outline='#00FF7F', fill='#00FA9A', width=3)
 
 
-T = int(input("Informe um tamanho, de preferencia maior que 50:"))
-eixoX = 800 // 2
-eixoY = 600 // 2
-raio = 0.45 * T
-tam_Altura_Lado = 0.9 * T
+def desenho_formas():
+    canvas.delete("all")  # Limpar a área de desenho
+    T = int(entrada.get())
+    eixoX = 800 / 2
+    eixoY = 600 / 2
+    raio = 0.45 * T
+    tam_Altura_Lado = 0.9 * T
 
-canvas.create_line(eixoX - T, eixoY, eixoX + T, eixoY, fill="black")
-canvas.create_line(eixoX, eixoY - T, eixoX, eixoY + T, fill="black")
+    canvas.create_line(eixoX - T, eixoY, eixoX + T,
+                       eixoY, fill="black", width=5)
+    canvas.create_line(eixoX, eixoY - T, eixoX,
+                       eixoY + T, fill="black", width=5)
 
-circulo(eixoX - T + raio, eixoY + T - raio, raio)
-quadrado(eixoX + (T // 2), eixoY + T - tam_Altura_Lado / 2, tam_Altura_Lado)
-triangulo(eixoX + T - (tam_Altura_Lado / 2), eixoY -
-          T + (tam_Altura_Lado // 2), tam_Altura_Lado)
+    circulo(eixoX - T + raio, eixoY + T - raio, raio)
+    quadrado(eixoX + (T // 2), eixoY + T -
+             tam_Altura_Lado / 2, tam_Altura_Lado)
+    triangulo(eixoX + T - (tam_Altura_Lado / 2), eixoY -
+              T + (tam_Altura_Lado // 2), tam_Altura_Lado)
 
+
+entrada = tk.Entry(janela)
+entrada.pack()
+btn = tk.Button(janela, text="ENVIAR", command=desenho_formas)
+btn.pack()
+canvas.pack()
 
 janela.mainloop()

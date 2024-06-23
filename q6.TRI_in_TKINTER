@@ -1,20 +1,21 @@
 import tkinter as tk
 
 window = tk.Tk()
-window.title("tk")
-window.geometry("800x600")
+window.title("Atividade 6")
+window.geometry("800x600+250+70")
 canvas = tk.Canvas(window, width=800, height=600)
 canvas.pack()
+canvas.configure(background='#D3D3D3')
 
 # especificar as cores do polígono
 # parâmetros outline e fill
 
-canvas.create_polygon([10, 20, 160, 20, 85, 250], outline='black', fill='red')
+canvas.create_polygon([10, 20, 320, 20, 160, 550], outline='black', fill='red')
 
-canvas.create_polygon([200, 20, 280, 250, 130, 250],
+canvas.create_polygon([390, 20, 550, 550, 220, 550],
                       outline='black', fill='green')
 
-canvas.create_polygon([240, 20, 390, 20, 320, 250],
+canvas.create_polygon([460, 20, 750, 20, 600, 550],
                       outline='black', fill='blue')
 
 window.mainloop()
@@ -24,7 +25,7 @@ window.mainloop()
 # canto superior dir = CSD
 # canto superior esq = CSE
 # vertice SUPERIOR = VS
-# vertice INFERior = VI
+# vertice INFERiOR = VI
 # canto inferior dir = CID
 # canto inferior esq = CIE
 # "origem" = parte superior da tela
@@ -32,18 +33,18 @@ window.mainloop()
 
 '''
 VERMELHO
-CSE = 10 DIREITA (x); 20 abaixo da origem (y)
-CSD = 160 DIREITA (x); 20 abaixo da origem (y)
-VI = 85 DIREITA (x); 250 abaixo da origem (y)
+CSE = 10 (x); 20 abaixo da origem (y)
+CSD = 320 (x); 20 abaixo da origem (y)
+VI = 160 (x); 550 abaixo da origem (y)
 
 VERDE 
-VS = 200 DIREITA (x); 20 abaixo da origem (y)
-CID = 280 DIREITA (x); 250 abaixo da origem (y)
-CIE = 130 DIREITA (x); 250 abaixo da origem (y)
+VS = 390 (x); 20 abaixo da origem (y)
+CID = 550 (x); 550 abaixo da origem (y)
+CIE = 220 (x); 550 abaixo da origem (y)
 
 AZUL 
-CSE = 240 DIREITA (x); 20 abaixo da origem (y)
-CSD = 390 DIREITA (x); 20 abaixo da origem (y)
-vertice INFER = 320 DIREITA (x); 250 abaixo da origem (y)
+CSE = 460 (x); 20 abaixo da origem (y)
+CSD = 750 (x); 20 abaixo da origem (y)
+vertice INFER = 600 (x); 550 abaixo da origem (y)
 
 '''
